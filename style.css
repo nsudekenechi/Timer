@@ -78,10 +78,9 @@ header i {
     border-radius: 0px 100px 100px 0px;
     color: white;
     column-gap: 10px;
-    position: relative;
     transform: translateX(-100%);
     transition: all 0.5s;
-    position: relative;
+    /* position: relative; */
     background-color: #E4A010;
 
 }

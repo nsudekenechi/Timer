@@ -49,11 +49,11 @@ circle.onclick = function () {
         rotateIntervalId = setInterval(() => {
             // Rotating timer
             rotate += 20;
+            timerIcon.style.transition = "all 0.3s linear"
             timerIcon.style.transform = `translate(-50%, 0) rotate(${rotate}deg)`
         }, 100)
 
     } else {
-
         circleIcon.classList.replace("fa-pause", "fa-play")
         clearInterval(intervalId)
         clearInterval(rotateIntervalId)
@@ -66,18 +66,20 @@ circle.onclick = function () {
 // stopping Timer
 
 stopIcon.onclick = function () {
-    seconds = 0;
+    // Resetting values of variables
+    seconds = 1;
     minutes = 0;
     hours = 0;
     rotate = 0;
     // Resetting rotate
-    timerIcon.style.transform = `translate(-50%, 0) rotate(${rotate}deg)`
+    timerIcon.style.transition = "none"
+    timerIcon.style.transform = `translate(-50%, 0) rotate(0deg)`
     resetCon.style.transform = "translateX(-100%)";
     circle.style.borderRadius = "50%"
     // Pushing time to html
-    secText.innerHTML = seconds < 10 ? `0${seconds}` : seconds
-    minText.innerHTML = `${minutes < 10 ? `0${minutes}` : minutes}`
-    hourText.innerHTML = `${hours < 10 ? `0${hours}` : hours}`
+    secText.innerHTML = "00"
+    minText.innerHTML = "00"
+    hourText.innerHTML = "00"
     circleIcon.classList.replace("fa-pause", "fa-play")
     clearInterval(intervalId)
     clearInterval(rotateIntervalId)
